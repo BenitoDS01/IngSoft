@@ -75,7 +75,7 @@ public class StudentServiceImpl implements StudentService{
 		MongoDatabase mongoDatabase = mongoClient.getDatabase(db);
 		MongoCollection<Document> collection = mongoDatabase.getCollection(COLLECTION_PERSONE);
 
-		for(Document current : collection.find(eq(ELEMENT_COGNOME, id))){
+		for(Document current : collection.find(eq(ELEMENT_NOME, id))){
 			Student st = new Student(current.getString(ELEMENT_COGNOME), current.getString(ELEMENT_NOME), current.getString(ELEMENT_ORE));
 			students.add(st);
 		}
